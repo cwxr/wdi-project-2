@@ -25,16 +25,17 @@ app.use(bodyParser.urlencoded({
 // transform JSON data to req.body
 app.use(bodyParser.json())
 
-app.get('/', function (req, res) {
-  res.render('')
-})
-
 // setup the ejs template
 app.set('view engine', 'ejs')
 
+app.get('/', function (req, res) {
+  res.render('home')
+})
+
+
 // require the movies_controller
-var dataController = require('./controllers/general_controller')
-app.use(dataController)
+var generalController = require('./controllers/general_controller')
+app.use(generalController)
 
 // error msg
 app.use(function (req, res) {
