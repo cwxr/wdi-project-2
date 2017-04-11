@@ -32,7 +32,6 @@ app.get('/', function (req, res) {
   res.render('home')
 })
 
-
 // require the movies_controller
 var generalController = require('./controllers/general_controller')
 app.use(generalController)

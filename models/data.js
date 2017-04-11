@@ -4,7 +4,7 @@ var mongoose = require('mongoose')
 var dataSchema = new mongoose.Schema({
   name: String,
   email: String,
-  policy number: String,
+  policy: String,
   age: Number
 })
 
