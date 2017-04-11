@@ -4,17 +4,17 @@ var app = express()
 var port = process.env.PORT || 4000
 
 // mongoose setup
-var dbURI = process.env.PROD_MONGODB || 'mongodb://localhost:27017/mymdb'
-var mongoose = require('mongoose')
-mongoose.connect(dbURI)
-
-// check if our connection is okay
-var db = mongoose.connection
-db.on('error', console.error.bind(console, 'connection error:'))
-db.once('open', function () {
-  // we're connected!
-  console.log('really really connected')
-})
+// var dbURI = process.env.PROD_MONGODB || 'mongodb://localhost:27017/mymdb'
+// var mongoose = require('mongoose')
+// mongoose.connect(dbURI)
+//
+// // check if our connection is okay
+// var db = mongoose.connection
+// db.on('error', console.error.bind(console, 'connection error:'))
+// db.once('open', function () {
+//   // we're connected!
+//   console.log('really really connected')
+// })
 
 // setup body parser
 var bodyParser = require('body-parser')
