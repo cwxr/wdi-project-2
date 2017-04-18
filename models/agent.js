@@ -11,7 +11,7 @@ var agentSchema = new mongoose.Schema({
     lowercase: true,
     match: emailRegex
   },
-  username: {
+  name: {
     type: String,
     required: true,
     minlength: [3, 'name must be between 3 and 99 characters'],
@@ -38,6 +38,10 @@ agentSchema.pre('save', function (next) {
   agent.password = hash
   next()
 })
+
+agentSchema.methods.validPassword = function (password) {
+  return bcrypt.compareSync(password, this.password)
+}
 
 var Agent = mongoose.model('Agent', agentSchema)
 

@@ -1,0 +1,29 @@
+<h2>Hello, <%- agent.name %></h2>
+
+
+<a href="/">Home</a>
+<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+<a href="/client/createclient">Create Client</a>
+<a href="/policy/createpolicy">Create Policy</a>
+
+<!-- create view for all clients -->
+
+<ul>
+          <% allClient.forEach(function (client) { %>
+              <li>
+                  <h3><%= client.name %></h3>
+                  <ul>
+                    <li><strong>Firstname: </strong><%- client.firstname %></li>
+                    <li><strong>Lastname: </strong><%- client.lastname %></li>
+                    <li><strong>Gender: </strong><%- client.gender %></li>
+                    <li><strong>Email: </strong><%- client.email %></li>
+                    <%allPolicy.forEach(function(policy){%>
+                      <%if(policy.clientID === client._id){%>
+                        <li><%-policy.name%></li>
+                        <li><%-policy.date%></li>
+                      <%}%>
+                    <%})%>
+                  </ul>
+              </li>
+          <% }) %>
+      </ul>

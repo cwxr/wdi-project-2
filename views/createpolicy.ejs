@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="jumbotron">
+      <h2>Add New Policy</h2>
+      <form action="/policy/createpolicy" method="POST">
+          <div class="row">
+              <div class="form-group col-md-4">
+                  <input type="text" class="form-control" id="policytypeInput" placeholder="Policy Type" name="policytype">
+              </div>
+              <div class="form-group col-md-4">
+                  <input type="text" class="form-control" id="policynumberInput" placeholder="Policy Number" name="policynumber">
+              </div>
+              <div class="form-group col-md-4">
+                  <input type="text" class="form-control" id="policynameInput" placeholder="Policy Name" name="policyname">
+              </div>
+              <div class="form-group col-md-4">
+                  <input type="text" class="form-control" id="policystartdateInput" placeholder="Policy Start Date" name="policystartdate">
+              </div>
+              <div class="form-group col-md-4">
+                  <input type="text" class="form-control" id="policyenddateInput" placeholder="Policy End Date" name="policyenddate">
+              </div>
+
+              <div class="form-group col-md-4">
+                  <input type="text" class="form-control" id="premiumInput" placeholder="Premium" name="premium">
+              </div>
+
+              <div class="form-group col-md-4">
+                  <input type="text" class="form-control" id="clientIDInput" placeholder="Client ID" name="clientID">
+              </div>
+
+              <div class="form-group col-md-4">
+                  <button type="submit" class="btn btn-default btn-block btn-success">Create Policy</button>
+              </div>
+          </div>
+      </form>
