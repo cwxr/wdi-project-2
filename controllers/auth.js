@@ -4,10 +4,12 @@ var Agent = require('../models/agent')
 var passport = require('../config/passport')
 // var router = express()
 
-// show the home page (will also have our login links)
-router.get('/', function (req, res) {
-  res.render('/home')
-})
+// // show the home page (will also have our login links)
+// router.get('/', function (req, res) {
+//   res.render('/home', {
+//     test: 'test'
+//   })
+// })
 
 // PROFILE PAGE =========================
 router.get('/profile', isLoggedIn, function (req, res) {
@@ -40,15 +42,16 @@ router.get('/logout', function (req, res) {
 // LOGIN ===============================
 // show the login form
 router.get('/login', function (req, res) {
-  res.render('auth/login', { message: req.flash('loginMessage') })
+  res.render('auth/login')
 })
 
 // process the login form
 router.post('/login', function (req, res) {
   passport.authenticate('local', {
+    successFlash: 'You have successfully logged in',
     successRedirect: '/profile', // redirect to the secure profile section
     failureRedirect: '/auth/login', // redirect back to the signup page if there is an error
-    failureFlash: true // allow flash messages
+    failureFlash: 'Login Failed' // allow flash messages
   })(req, res)
 }
 )
@@ -63,7 +66,7 @@ router.get('/signup', function (req, res) {
 router.post('/signup', passport.authenticate('local-signup', {
   successRedirect: '/profile', // redirect to the secure profile section
   failureRedirect: '/auth/signup', // redirect back to the signup page if there is an error
-  failureFlash: true // allow flash messages
+  failureFlash: 'You need to enter all required fields' // allow flash messages
 }))
 
 function isLoggedIn (req, res, next) {

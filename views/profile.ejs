@@ -8,7 +8,7 @@
 
 <!-- create view for all clients -->
 
-<table>
+<table class="table table-bordered">
   <tr>
     <th>Firstname</th>
     <th>Lastname</th>
@@ -22,7 +22,13 @@
     <td><%- client.lastname %></td>
     <td><%- client.gender %></td>
     <td><%- client.email %></td>
-    <td><a href="/client/<%- client.id %>">View Client</a> | <a href="/policy/createpolicy/<%- client.id %>">Create Policy</a> | <a href="/client/deleteclient/<%- client.id %>">Delete Client</a></td>
+    <td>
+    <a href="/client/<%- client.id %>" class="btn btn-primary btn-sm active" role="button">View Client</a>
+    <a href="/policy/createpolicy/<%- client.id %>" class="btn btn-primary btn-sm active" role="button">Create Policy</a>
+    <a href="/client/deleteclient/<%- client.id %>" class="btn btn-primary btn-sm active" role="button">Delete Client</a>
+
+    </td>
+
   </tr>
   <%})%>
 </table>

@@ -51,11 +51,20 @@ router.get('/:id', function (req, res) {
   })
 })
 
+// UPDATE EMAIL FOR CLIENT
+router.put('/:id', function (req, res, next) {
+  Client.findByIdAndUpdate(req.params.id, {email: req.body.email}, function (err, client) {
+    if (err) next()
+    req.flash('success', 'Update Client is Successful')
+    res.redirect('/client/' + client._id)
+  })
+})
+
 // DELETE
-router.delete('/:id', function (req, res, next) {
+router.get('/deleteclient/:id', function (req, res, next) {
   Client.findByIdAndRemove(req.params.id, function (err) {
     if (err) next()
-    res.send('Client deleted')
+    res.render('deleteclient')
   })
 })
 

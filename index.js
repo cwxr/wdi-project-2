@@ -44,15 +44,13 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 // setup the ejs template
+app.use(ejsLayouts)
 app.set('view engine', 'ejs')
 
 // setup the method override
 var methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 
-app.get('/', function (req, res) {
-  res.render('home')
-})
 require('dotenv').config({silent: true})
 // required for passport
 app.use(session({
@@ -63,6 +61,15 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session()) // persistent login sessions
 app.use(flash()) // use connect-flash for flash messages stored in session
+app.use(function (req, res, next) {
+ // before every route, attach the flash messages and current user to res.locals
+  res.locals.alerts = req.flash()
+  res.locals.currentUser = req.user
+  next()
+})
+app.get('/', function (req, res) {
+  res.render('home')
+})
 
 // require the auth_agent controller
 app.get('/profile', isLoggedIn, function (req, res) {

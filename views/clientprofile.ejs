@@ -4,18 +4,22 @@
     <li>First Name: <%- client.firstname %></li>
     <li>Last Name: <%- client.lastname %></li>
     <li>Gender: <%- client.gender %></li>
-    <li>Email: <%- client.email %></li>
+<form action="/client/<%- client.id %>?_method=put" method="post">
+  <li>Email:<input name='email' value='<%- client.email %>'></input></li>
+<button type="submit" name="button">Update Email</button>
+</form>
   </ul>
 
 
-  <table>
+  <table class="table table-bordered">
   <tr>
-    <th>Type</th>
-    <th>Number</th>
-    <th>Name</th>
+    <th>Policy Type</th>
+    <th>Policy No.</th>
+    <th>Policy Name</th>
     <th>Start Date</th>
     <th>End Date</th>
     <th>Premium</th>
+    <th>Delete Policy</th>
   </tr>
   <% allPolicy.forEach(function (policy) { %>
     <tr>
@@ -26,5 +30,9 @@
       <td><%- policy.policystartdate %></td>
       <td><%- policy.policyenddate %></td>
       <td><%- policy.premium %></td>
+      <td><a href="/policy/deletepolicy/<%- policy.id %>" class="btn btn-primary btn-sm active" role="button">Delete Policy</a>
+      </td>
     <%})%>
   </table>
+
+<a href="/profile" class="btn btn-primary btn-lg btn-block">Dashboard</button>

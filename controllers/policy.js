@@ -44,7 +44,7 @@ router.get('/policy/:id', function (req, res) {
 router.get('/deletepolicy/:id', function (req, res, next) {
   Policy.findByIdAndRemove(req.params.id, function (err) {
     if (err) next()
-    res.send('Policy deleted')
+    res.render('deletepolicy')
   })
 })
 
