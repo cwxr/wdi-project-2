@@ -1,0 +1,30 @@
+<h1><%- client.firstname %> <%- client.lastname %></h1>
+
+  <ul>
+    <li>First Name: <%- client.firstname %></li>
+    <li>Last Name: <%- client.lastname %></li>
+    <li>Gender: <%- client.gender %></li>
+    <li>Email: <%- client.email %></li>
+  </ul>
+
+
+  <table>
+  <tr>
+    <th>Type</th>
+    <th>Number</th>
+    <th>Name</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Premium</th>
+  </tr>
+  <% allPolicy.forEach(function (policy) { %>
+    <tr>
+
+      <td><%- policy.policytype %></td>
+      <td><%- policy.policynumber %></td>
+      <td><%- policy.policyname %></td>
+      <td><%- policy.policystartdate %></td>
+      <td><%- policy.policyenddate %></td>
+      <td><%- policy.premium %></td>
+    <%})%>
+  </table>

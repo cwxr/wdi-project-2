@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var Client = require('../models/client')
+var Policy = require('../models/policy')
 var passport = require('../config/passport')
 
 // show the create client form
@@ -21,10 +22,7 @@ router.post('/createclient', function (req, res) {
   })
   newClient.save(function (err) {
     if (err) res.send(err)
-    res.redirect('/profile', {
-      newClient: newClient,
-      agent: req.user
-    })
+    res.redirect('/profile')
   })
 })
 
@@ -38,15 +36,23 @@ router.get('/', function (req, res) {
   // })
 
 // FIND ONE CLIENT BY ID
-router.get('/client/:id', function (req, res) {
+router.get('/:id', function (req, res) {
   Client.findById(req.params.id, function (err, client) {
     if (err) res.send(err)
-    res.render('new_page')
+    Policy.find({
+      clientID: req.params.id // filter policies
+    }, function (err, policies) {
+      if (err) res.send(err)
+      res.render('clientprofile', {
+        client: client,
+        allPolicy: policies
+      })
+    })
   })
 })
 
 // DELETE
-router.delete('/client/:id', function (req, res, next) {
+router.delete('/:id', function (req, res, next) {
   Client.findByIdAndRemove(req.params.id, function (err) {
     if (err) next()
     res.send('Client deleted')

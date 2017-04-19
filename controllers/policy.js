@@ -3,9 +3,9 @@ var router = express.Router()
 var Policy = require('../models/policy')
 var passport = require('../config/passport')
 
-  // show the create policy form
-router.get('/createpolicy', function (req, res) {
-  res.render('createpolicy')
+// show the create policy route
+router.get('/createpolicy/:clientID', function (req, res) {
+  res.render('createpolicy', {clientID: req.params.clientID})
 })
 
   // CREATE THE POLICY
@@ -18,7 +18,7 @@ router.post('/createpolicy', function (req, res) {
     policystartdate: req.body.policystartdate,
     policyenddate: req.body.policyenddate,
     premium: req.body.premium,
-    clientID: req.user._id
+    clientID: req.body.clientID
   })
   newPolicy.save(function (err) {
     if (err) res.send(err)
@@ -36,12 +36,12 @@ router.get('/', function (req, res) {
 router.get('/policy/:id', function (req, res) {
   Policy.findById(req.params.id, function (err, policy) {
     if (err) res.send(err)
-    res.render('new_page')
+    res.render('')
   })
 })
 
   // DELETE
-router.delete('/policy/:id', function (req, res, next) {
+router.get('/deletepolicy/:id', function (req, res, next) {
   Policy.findByIdAndRemove(req.params.id, function (err) {
     if (err) next()
     res.send('Policy deleted')

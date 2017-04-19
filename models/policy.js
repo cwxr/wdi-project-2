@@ -18,12 +18,12 @@ var policySchema = new mongoose.Schema({
   },
 
   policystartdate: {
-    type: String,
+    type: Date,
     required: true
   },
 
   policyenddate: {
-    type: String,
+    type: Date,
     required: true
   },
 

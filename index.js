@@ -109,4 +109,5 @@ function isLoggedIn (req, res, next) {
 
 app.listen(port, function () {
   console.log('app is running at ' + port)
+  var Scheduler = require('./scheduler')
 })

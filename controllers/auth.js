@@ -31,7 +31,9 @@ router.get('/profile', isLoggedIn, function (req, res) {
 
 // LOGOUT ==============================
 router.get('/logout', function (req, res) {
+  // console.log('here')
   req.logout()
+  // res.send('helloworld')
   res.redirect('/')
 })
 
