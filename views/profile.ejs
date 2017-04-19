@@ -4,7 +4,7 @@
 <a href="/">Home</a>
 <a href="/auth/logout" class="btn btn-default btn-sm">Logout</a>
 <a href="/client/createclient">Create Client</a>
-<a href="/policy/createpolicy">Create Policy</a>
+
 
 <!-- create view for all clients -->
 
@@ -22,7 +22,7 @@
     <td><%- client.lastname %></td>
     <td><%- client.gender %></td>
     <td><%- client.email %></td>
-    <td><a href="/client/<%- client.id %>">View Client</a> | <a href="/policy/createpolicy/<%- client.id %>">Create Policy</a></td>
+    <td><a href="/client/<%- client.id %>">View Client</a> | <a href="/policy/createpolicy/<%- client.id %>">Create Policy</a> | <a href="/client/deleteclient/<%- client.id %>">Delete Client</a></td>
   </tr>
   <%})%>
 </table>
