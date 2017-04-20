@@ -2,23 +2,15 @@ var express = require('express')
 var router = express.Router()
 var Agent = require('../models/agent')
 var passport = require('../config/passport')
-// var router = express()
-
-// // show the home page (will also have our login links)
-// router.get('/', function (req, res) {
-//   res.render('/home', {
-//     test: 'test'
-//   })
-// })
 
 // PROFILE PAGE =========================
-router.get('/profile', isLoggedIn, function (req, res) {
+router.get('/profile', isLoggedIn, function(req, res) {
   // go and get all clients
-  Policy.find({}, function (err, allPolicy) {
+  Policy.find({}, function(err, allPolicy) {
     if (err) res.send(err)
     Client.find({
       agentID: req.user._id
-    }, function (err, allClient) {
+    }, function(err, allClient) {
       res.render('profile', {
         allPolicy: allPolicy,
         agent: req.user,
@@ -26,13 +18,10 @@ router.get('/profile', isLoggedIn, function (req, res) {
       })
     })
   })
-  // Clients.findAll
-    // agent: req.agent
-    // clients: clients
 })
 
 // LOGOUT ==============================
-router.get('/logout', function (req, res) {
+router.get('/logout', function(req, res) {
   // console.log('here')
   req.logout()
   // res.send('helloworld')
@@ -41,24 +30,23 @@ router.get('/logout', function (req, res) {
 
 // LOGIN ===============================
 // show the login form
-router.get('/login', function (req, res) {
+router.get('/login', function(req, res) {
   res.render('auth/login')
 })
 
 // process the login form
-router.post('/login', function (req, res) {
+router.post('/login', function(req, res) {
   passport.authenticate('local', {
     successFlash: 'You have successfully logged in',
     successRedirect: '/profile', // redirect to the secure profile section
     failureRedirect: '/auth/login', // redirect back to the signup page if there is an error
     failureFlash: 'Login Failed' // allow flash messages
   })(req, res)
-}
-)
+})
 
 // SIGNUP =================================
 // show the signup form
-router.get('/signup', function (req, res) {
+router.get('/signup', function(req, res) {
   res.render('auth/signup')
 })
 
@@ -69,7 +57,7 @@ router.post('/signup', passport.authenticate('local-signup', {
   failureFlash: 'You need to enter all required fields' // allow flash messages
 }))
 
-function isLoggedIn (req, res, next) {
+function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next()
   }
@@ -78,23 +66,3 @@ function isLoggedIn (req, res, next) {
 }
 
 module.exports = router
-// router.route('/register')
-// .get(function (req, res) {
-//   res.render('auth/signup')
-// })
-// .post(function (req, res) {
-//   var newAgent = new Agent({
-//     email: req.body.email,
-//     username: req.body.username,
-//     password: req.body.password
-//   })
-//
-//   newAgent.save(function (err, data) {
-//     if (err) return res.redirect('/register')
-//     res.redirect('/')
-//   })
-// })
-
-// router.get('/login', function (req, res) {
-//   res.render('auth/login')
-// })

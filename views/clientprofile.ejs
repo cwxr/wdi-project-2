@@ -1,3 +1,4 @@
+<div class='container'>
 <h1><%- client.firstname %> <%- client.lastname %></h1>
 
   <ul>
@@ -10,8 +11,9 @@
 </form>
   </ul>
 
-
-  <table class="table table-bordered">
+<div class='centered col-md-12'>
+  <table class="table table-bordered ">
+    <thead>
   <tr>
     <th>Policy Type</th>
     <th>Policy No.</th>
@@ -21,6 +23,8 @@
     <th>Premium</th>
     <th>Delete Policy</th>
   </tr>
+</thead>
+<tbody>
   <% allPolicy.forEach(function (policy) { %>
     <tr>
 
@@ -30,9 +34,15 @@
       <td><%- policy.policystartdate %></td>
       <td><%- policy.policyenddate %></td>
       <td><%- policy.premium %></td>
-      <td><a href="/policy/deletepolicy/<%- policy.id %>" class="btn btn-primary btn-sm active" role="button">Delete Policy</a>
+      <form action="/policy/deletepolicy/<%- policy.id %>?_method=delete" method="post" >
+      <td><input type="submit" value="Delete Policy" class="btn btn-primary btn-sm active" role="button"></input>
       </td>
+      </form>
     <%})%>
+</tbody>
   </table>
-
-<a href="/profile" class="btn btn-primary btn-lg btn-block">Dashboard</button>
+</div>
+  <div class='col-md-12 text-center'>
+    <a href="/profile" class="btn btn-primary btn-lg col-md-5 text-center">Dashboard</a>
+</div>
+</div>

@@ -1,36 +1,48 @@
-<h2>Welcome Agent: <%- agent.name %></h2>
+<div class="profilepage">
 
+    <h2>Welcome Agent: <%- agent.name %></h2>
 
-<a href="/" class="btn btn-primary">Home</a>
-<a href="/client/createclient" class="btn btn-success">Create Client</a>
-<a href="/auth/logout" class="btn btn-danger">Logout</a>
-<br>
-<br>
+    <a href="/" class="btn btn-primary">Home</a>
+    <a href="/client/createclient" class="btn btn-success">Create Client</a>
+    <a href="/auth/logout" class="btn btn-danger">Logout</a>
+    <br>
+    <br>
+    <!-- create view for all clients -->
 
+    <table class="table table-bordered">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Edit</th>
+        </tr>
+        <% allClient.forEach(function (client) { %>
+            <tr>
+                <td>
+                    <%- client.firstname %>
+                </td>
+                <td>
+                    <%- client.lastname %>
+                </td>
+                <td>
+                    <%- client.gender %>
+                </td>
+                <td>
+                    <%- client.email %>
+                </td>
+                <td>
 
-<!-- create view for all clients -->
+                    <a href="/client/<%- client.id %>" class="btn btn-primary btn-sm active" role="button">View Client</a>
+                    <a href="/policy/createpolicy/<%- client.id %>" class="btn btn-primary btn-sm active" role="button">Create Policy</a>
 
-<table class="table table-bordered">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Gender</th>
-    <th>Email</th>
-    <th>Edit</th>
-  </tr>
-<% allClient.forEach(function (client) { %>
-  <tr>
-    <td><%- client.firstname %></td>
-    <td><%- client.lastname %></td>
-    <td><%- client.gender %></td>
-    <td><%- client.email %></td>
-    <td>
-    <a href="/client/<%- client.id %>" class="btn btn-primary btn-sm active" role="button">View Client</a>
-    <a href="/policy/createpolicy/<%- client.id %>" class="btn btn-primary btn-sm active" role="button">Create Policy</a>
-    <a href="/client/deleteclient/<%- client.id %>" class="btn btn-primary btn-sm active" role="button">Delete Client</a>
+                    <form action="/client/deleteclient/<%- client.id %>?_method=delete" method="post" class='btnbox'>
+                        <input type="submit" value="Delete Client" class="btn btn-primary btn-sm active" role="button"></input>
+                    </form>
 
-    </td>
+                </td>
 
-  </tr>
-  <%})%>
-</table>
+            </tr>
+            <%})%>
+    </table>
+</div>

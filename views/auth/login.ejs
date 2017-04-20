@@ -1,4 +1,8 @@
 <%# LOGIN FORM%>
+
+
+<div class="login-cont">
+    <h1>Login</h1>
     <form action="/auth/login" method="post">
         <div class="form-group">
             <label>Email</label>
@@ -9,7 +13,10 @@
             <input type="password" class="form-control" name="password">
         </div>
 
+        <div class="login-btn">
         <button type="submit" class="btn btn-primary">Login</button>
+        </div>
     </form>
 
-    <p>Need an account? <a href="/auth/signup" class="btn btn-success">SignUp Here</a></p>
+    <p>Need an account? </p><a href="/auth/signup" class="btn btn-success">SignUp Here</a>
+</div>

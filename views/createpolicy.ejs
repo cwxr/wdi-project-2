@@ -1,34 +1,45 @@
 <div class="container">
     <div class="jumbotron">
-      <h2>Add New Policy</h2>
-      <form action="/policy/createpolicy" method="POST">
-          <div class="row">
-              <div class="form-group col-md-4">
-                  <input type="text" class="form-control" id="policytypeInput" placeholder="Policy Type" name="policytype">
-              </div>
-              <div class="form-group col-md-4">
-                  <input type="text" class="form-control" id="policynumberInput" placeholder="Policy Number" name="policynumber">
-              </div>
-              <div class="form-group col-md-4">
-                  <input type="text" class="form-control" id="policynameInput" placeholder="Policy Name" name="policyname">
-              </div>
-              <div class="form-group col-md-4">
-                  <input type="text" class="form-control" id="policystartdateInput" placeholder="MM-DD-YYYY" name="policystartdate">
-              </div>
-              <div class="form-group col-md-4">
-                  <input type="text" class="form-control" id="policyenddateInput" placeholder="MM-DD-YYYY" name="policyenddate">
-              </div>
+        <h2>Add New Policy</h2>
+        <form action="/policy/createpolicy" method="POST">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <%# <class="form-control" id="policytypeInput" placeholder="Policy Type" name="policytype">%>
+                        <select name='policytype' class='form-control' required>
+                       <option value='Car'>Car</option>
+                       <option value='Travel'>Travel</option>
+                       <option value='Home'>Home</option>
 
-              <div class="form-group col-md-4">
-                  <input type="text" class="form-control" id="premiumInput" placeholder="Premium" name="premium">
-              </div>
+                   </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="policynumberInput" placeholder="Policy Number" name="policynumber">
+                </div>
+                <div class="form-group col-md-4">
+                    <%# <input type="text" class="form-control" id="policynameInput" placeholder="Policy Name" name="policyname">%>
+                        <select name='policyname' class='form-control' required>
+                       <option value='Drive Safe'>Drive Safe</option>
+                       <option value='Travel Smart'>Travel Smart</option>
+                       <option value='Home Shield'>Home Shield</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="policystartdateInput" placeholder="MM-DD-YYYY" name="policystartdate">
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="policyenddateInput" placeholder="MM-DD-YYYY" name="policyenddate">
+                </div>
 
-              <div class="form-group col-md-4">
-                  <input type="hidden" class="form-control" id="clientIDInput" placeholder="Client ID" name="clientID" value="<%-clientID%>">
-              </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="premiumInput" placeholder="Premium" name="premium">
+                </div>
 
-              <div class="form-group col-md-4">
-                  <button type="submit" class="btn btn-default btn-block btn-success">Create Policy</button>
-              </div>
-          </div>
-      </form>
+                <div class="form-group col-md-4">
+                    <input type="hidden" class="form-control" id="clientIDInput" placeholder="Client ID" name="clientID" value="<%-clientID%>">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <button type="submit" class="btn btn-default btn-block btn-success">Create Policy</button>
+                </div>
+            </div>
+        </form>

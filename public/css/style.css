@@ -1,9 +1,74 @@
-.bg {
-  background: url('http://www.moneychoice.org/wp-content/uploads/2014/10/personal-insurance.jpg');
-  /*height: 1000px;
-  width: 1000px;*/
+
+body{
+  font-family: 'Palanquin Dark', sans-serif;
+  background-image: url('http://www.finity.com.au/site/wp-content/uploads/2016/01/Finity-Background-17.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
+  }
+
+.container_home {
+  width: 50vw;
   margin: auto;
-  position: relative;
-  min-height: 1200px;
+}
+
+.logomain {
+  width: 400px;
+  height: 400px;
+
+}
+.logo{
+  margin-left: 22%;
+
+}
+.login-cont {
+  width: 400px;
+  margin: auto;
+}
+
+.register-cont {
+  width: 400px;
+  margin: auto;
+}
+.login-btn {
+  margin-bottom: 20px;
+}
+.table {
+  width: 80%;
+}
+.dashboard {
+  width: 300px;
+}
+
+.policy-reminder {
+  width: 80px;
+  height: 80px;
+}
+
+.email-notify {
+  width: 80px;
+  height: 80px;
+}
+
+.btn-group-justified {
+  margin-bottom: 70px;
+}
+
+.profilepage {
+  background-color: white;
+  height: 1000px;
+}
+
+.container {
+  background-color: white;
+  width: auto;
+  height: 1000px;
+}
+
+.media-object {
+  width: 100px;
+  height: 30px;
+}
+
+.btnbox {
+  display: inline;
 }

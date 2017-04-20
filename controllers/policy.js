@@ -4,12 +4,14 @@ var Policy = require('../models/policy')
 var passport = require('../config/passport')
 
 // show the create policy route
-router.get('/createpolicy/:clientID', function (req, res) {
-  res.render('createpolicy', {clientID: req.params.clientID})
+router.get('/createpolicy/:clientID', function(req, res) {
+  res.render('createpolicy', {
+    clientID: req.params.clientID
+  })
 })
 
-  // CREATE THE POLICY
-router.post('/createpolicy', function (req, res) {
+// CREATE THE POLICY
+router.post('/createpolicy', function(req, res) {
   // create client when we receive the post request
   var newPolicy = new Policy({
     policytype: req.body.policytype,
@@ -20,32 +22,32 @@ router.post('/createpolicy', function (req, res) {
     premium: req.body.premium,
     clientID: req.body.clientID
   })
-  newPolicy.save(function (err) {
+  newPolicy.save(function(err) {
     if (err) res.send(err)
     else {
       res.redirect('/profile')
     }
-  // next()
+    // next()
   })
 })
 
-  // FIND ALL POLICIES
-router.get('/', function (req, res) {
+// FIND ALL POLICIES
+router.get('/', function(req, res) {
   res.redirect('/profile')
 })
 
-  // FIND ONE POLICY BY ID
-router.get('/policy/:id', function (req, res) {
-  Policy.findById(req.params.id, function (err, policy) {
-    if (err) res.send(err)
-    res.render('')
-  })
-})
+//   // FIND ONE POLICY BY ID
+// router.get('/policy/:id', function (req, res) {
+//   Policy.findById(req.params.id, function (err, policy) {
+//     if (err) res.send(err)
+//     res.render('')
+//   })
+// })
 
-  // DELETE
-router.get('/deletepolicy/:id', function (req, res, next) {
+// DELETE
+router.delete('/deletepolicy/:id', function(req, res, next) {
   // delete in bulk matching client ID delete
-  Policy.findByIdAndRemove(req.params.id, function (err) {
+  Policy.findByIdAndRemove(req.params.id, function(err) {
     if (err) next()
     res.render('deletepolicy')
   })

@@ -23,7 +23,7 @@ const SERVER_OPTS = {
 
 const transporter = nodemailer.createTransport(SERVER_OPTS)
 
-function sendMsg (policy, client, agent) {
+function sendMsg(policy, client, agent) {
   // create email
   var mailOptions = {
     from: 'test@pixelarrow.com.sg', // sender address
@@ -44,19 +44,15 @@ function sendMsg (policy, client, agent) {
   console.log(policy, client, agent)
 }
 
-function checkPolicy () {
-  console.log('bjbvjbv')
-  // Policy.find({}, function (err, data) {
-  //   console.log(data)
-  // })
-  Policy.find({}, function (err, policies) {
+function checkPolicy() {
+  Policy.find({}, function(err, policies) {
     if (err) console.log(err)
     console.log('policies', policies)
-    policies.forEach(function (policy) {
+    policies.forEach(function(policy) {
       if (policy.policyenddate - 30 * 24 * 60 * 60 * 1000 < new Date()) {
-        Client.findById(policy.clientID, function (err, client) {
+        Client.findById(policy.clientID, function(err, client) {
           if (err || !client) return
-          Agent.findById(client.agentID, function (err, agent) {
+          Agent.findById(client.agentID, function(err, agent) {
             if (err || !agent) return
             sendMsg(policy, client, agent)
           })
@@ -68,7 +64,7 @@ function checkPolicy () {
 // checkPolicy()
 
 // define a new schedule
-var cronSched = later.parse.cron('*/1 * * * *')
+var cronSched = later.parse.cron('00/18 * * * *')
 // console.log(later.schedule(cronSched).next(10))
 // later.setInterval(checkPolicy, cronSched)
 checkPolicy()

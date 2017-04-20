@@ -1,5 +1,4 @@
 // set up
-// get all the tools we need
 var express = require('express')
 var ejsLayouts = require('express-ejs-layouts')
 var bodyParser = require('body-parser')
@@ -90,9 +89,6 @@ app.get('/profile', isLoggedIn, function (req, res) {
       })
     })
   })
-  // Clients.findAll
-    // agent: req.agent
-    // clients: clients
 })
 // CONTROLLERS
 var auth_Controller = require('./controllers/auth')
@@ -104,10 +100,6 @@ app.use('/client', clientController)
 var policyController = require('./controllers/policy')
 app.use('/policy', policyController)
 
-// error msg
-// app.use(function (req, res) {
-//   res.send('Error detected')
-// })
 
 // to ensure user is logged in
 function isLoggedIn (req, res, next) {
