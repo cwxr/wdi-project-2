@@ -22,7 +22,9 @@ router.post('/createpolicy', function (req, res) {
   })
   newPolicy.save(function (err) {
     if (err) res.send(err)
-    res.redirect('/profile')
+    else {
+      res.redirect('/profile')
+    }
   // next()
   })
 })
@@ -42,6 +44,7 @@ router.get('/policy/:id', function (req, res) {
 
   // DELETE
 router.get('/deletepolicy/:id', function (req, res, next) {
+  // delete in bulk matching client ID delete
   Policy.findByIdAndRemove(req.params.id, function (err) {
     if (err) next()
     res.render('deletepolicy')
