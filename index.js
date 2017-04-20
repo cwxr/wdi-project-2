@@ -14,6 +14,7 @@ var session = require('express-session')
 var Agent = require('./models/agent')
 var Client = require('./models/client')
 var Policy = require('./models/policy')
+var path = require('path')
 
 // setup DB
 var dbURI = process.env.PROD_MONGODB || 'mongodb://localhost:27017/proj2'
@@ -29,6 +30,9 @@ db.once('open', function () {
 
 // initialize passport
 var passport = require('./config/passport')
+
+// CSS
+app.use(express.static(path.join(__dirname, 'public')))
 
 // set up our express application
 app.use(morgan('dev')) // log every request to the console

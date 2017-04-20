@@ -1,0 +1,9 @@
+.bg {
+  background: url('http://www.planwallpaper.com/static/images/1757527.jpg');
+  /*height: 1000px;
+  width: 1000px;*/
+  background-size: cover;
+  margin: auto;
+  position: relative;
+  min-height: 1200px;
+}

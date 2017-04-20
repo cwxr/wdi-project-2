@@ -62,8 +62,8 @@ function checkPolicy () {
 }
 // checkPolicy()
 
-// define a new schedule
-var cronSched = later.parse.cron('47/11 * * * *')
-// console.log(later.schedule(cronSched).next(10))
-later.setInterval(checkPolicy, cronSched)
-// checkPolicy()
+// // define a new schedule
+// var cronSched = later.parse.cron('47/11 * * * *')
+// // console.log(later.schedule(cronSched).next(10))
+// later.setInterval(checkPolicy, cronSched)
+checkPolicy()
