@@ -45,10 +45,15 @@ function sendMsg (policy, client, agent) {
 }
 
 function checkPolicy () {
-  Policy.find(function (err, policies) {
-    if (err) res.send(err)
+  console.log('bjbvjbv')
+  // Policy.find({}, function (err, data) {
+  //   console.log(data)
+  // })
+  Policy.find({}, function (err, policies) {
+    if (err) console.log(err)
+    console.log('policies', policies)
     policies.forEach(function (policy) {
-      if (policy.policyenddate - 30 * 24 * 60 * 60 * 1000 < new Date() && policy.policyenddate - 29 * 24 * 60 * 60 * 1000 > new Date()) {
+      if (policy.policyenddate - 30 * 24 * 60 * 60 * 1000 < new Date()) {
         Client.findById(policy.clientID, function (err, client) {
           if (err || !client) return
           Agent.findById(client.agentID, function (err, agent) {
@@ -62,8 +67,8 @@ function checkPolicy () {
 }
 // checkPolicy()
 
-// // define a new schedule
-// var cronSched = later.parse.cron('47/11 * * * *')
-// // console.log(later.schedule(cronSched).next(10))
+// define a new schedule
+var cronSched = later.parse.cron('*/1 * * * *')
+// console.log(later.schedule(cronSched).next(10))
 // later.setInterval(checkPolicy, cronSched)
 checkPolicy()
