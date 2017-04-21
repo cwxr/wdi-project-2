@@ -31,11 +31,40 @@ the respective Agents when their client policy is almost due.
 ### Process Thoughts
 ![Process](http://i.imgur.com/ZZD3bc3.jpg)
 
+### Notable Findings
+![Email Sender](http://i.imgur.com/YwiX4rI.png)
+The email sender will require a scheduler and also the main nodemailer for it to be functional.
+The challenges i faced while trying to implement this was the scheduler initially only works on localhost and i managed to change the timezone via the heroku and so it matches our local timezone.
+
+### Wishlist
+If i had more time i would like to do the following for my project to make it better:
+1) Allow the Agent to upload his own database via a .csv file for bulk upload.
+2) Add in a search bar for searching of clients / policies.
+3) Add in a sales marketing module for Agents to select groups of clients to send promo msgs.
+
+
 ### Language & Application
 - HTML & CSS
 - Node.js
 - mLab
 - Heroku
+- Bootstrap
 
 ### Acknowledgement
 Thanks to my instructor and TA for their guidance for me to complete this project!
+Special Thanks to all my classmates who helped me along the way.. You guys are the best!
+Prima
+Yisheng
+Sharona
+Ian
+Maria
+Shirong
+Darrell
+Raymond
+Ariff
+Tom
+
+### References
+Node Mailer - https://nodemailer.com
+Scheduler - https://bunkat.github.io/later
+
