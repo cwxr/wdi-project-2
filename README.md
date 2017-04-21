@@ -65,6 +65,6 @@ Special Thanks to all my classmates who helped me along the way.. You guys are t
 - Tom
 
 ### References
-Node Mailer - https://nodemailer.com
-Scheduler - https://bunkat.github.io/later
+- Node Mailer - https://nodemailer.com
+- Scheduler - https://bunkat.github.io/later
 
