@@ -17,7 +17,7 @@ Develop a robust web application for client database management with a reminder 
 the respective Agents when their client policy is almost due.
 
 ### Actual Product
-[INS Hub](https://pure-sierra-62030.herokuapp.com)
+[INS Hub](https://inshubsg.herokuapp.com)
 
 ### Design & Workflow
 1) Agents must register with a Email, Name and Password.
