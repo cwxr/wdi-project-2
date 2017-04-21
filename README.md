@@ -53,16 +53,16 @@ If i had more time i would like to do the following for my project to make it be
 ### Acknowledgement
 Thanks to my instructor and TA for their guidance for me to complete this project!
 Special Thanks to all my classmates who helped me along the way.. You guys are the best!
-Prima
-Yisheng
-Sharona
-Ian
-Maria
-Shirong
-Darrell
-Raymond
-Ariff
-Tom
+- Prima
+- Yisheng
+- Sharona
+- Ian
+- Maria
+- Shirong
+- Darrell
+- Raymond
+- Ariff
+- Tom
 
 ### References
 Node Mailer - https://nodemailer.com
